@@ -1,0 +1,32 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+       public static void main(String[] args){
+           Scanner s =new Scanner(System.in);
+           String n=s.next();
+           int k =s.nextInt();
+           int n1=0;
+           char[] st=n.toCharArray();
+        
+           for(int i=0;i<st.length;i++){
+               int j=st[i];
+      
+               n1=n1+Character.getNumericValue(j);
+               n1=n1%9;
+           }
+           int f=9;
+           if(((n1%f)*(k%f))%f==0)
+           System.out.println(f);
+           else
+           System.out.println(((n1%f)*(k%f))%f);
+       }
+}
+
+
+
