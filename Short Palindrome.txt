@@ -1,0 +1,46 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution 
+{ 
+    static int t=1000000007;
+    public static void main(String[] args) 
+    {
+        Scanner scan=new Scanner(System.in);
+        String st=scan.nextLine();
+        int[] array1=new int[26];
+        int[][] array2=new int[26][26];
+        int[] array3=new int[26];
+        int output=0,i=0;
+
+        while(i<st.length())
+        {
+            int c = (int)(st.charAt(i)-'a');
+            output=output+(array3[c]%t);
+            output=output%t;
+            for(int j=0;j<26;j++)
+            {
+                array3[j]=array3[j]+(array2[j][c]%t);
+                array3[j]=array3[j]%t;
+                
+            }
+            
+            for(int k=0;k<26;k++)
+            {
+                array2[k][c]=array2[k][c]+(array1[k]%t);
+                 array2[k][c]=array2[k][c]%t;
+            }
+            
+            array1[c]++;
+            array1[c] = array1[c]%t;
+            i++;
+        }
+        System.out.println(output);
+    }
+
+}
